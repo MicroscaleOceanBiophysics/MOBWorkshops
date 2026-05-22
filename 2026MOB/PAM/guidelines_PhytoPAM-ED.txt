@@ -1,0 +1,17 @@
+### Guidelines for PhytoPAM ED Experiments
+
+- Turn on the PhytoPAM fluorometer and the PhytoWin software.
+
+# Briefly describe the components of the device. Indicate the locations of the different light sources and the light sensor. Describe the wavelengths involved and their respective optical paths.
+
+# In the PhytoWin software, explain the purpose of the four tabs: “Channels,” “Report,” “Light Curve,” and “Settings” (consult the manual as well). Analyze their contents. What do the different commands and displays in the “Light” and “Clock” panels correspond to?
+
+- The objective is to measure the photoprotective response of an algal sample.
+
+# Demonstrate that (F_q'/F_m') corresponds to the PSII operating efficiency (photosynthetic yield). Demonstrate that (F_v'/F_m') corresponds to the maximum PSII photochemical efficiency. Demonstrate that ((F_m - F_m')/F_m' = (K_{NPQ}' - K_{NPQ})/K_{NPQ}).
+
+# Describe the sequence of measurements and light exposures required to monitor photoprotection dynamics.
+
+# Implement your protocol in PhytoWin. Extract the autofluorescence results from the `report.rpt` file and plot them using your preferred plotting tool (e.g., Excel, Python using `pandas.read_table('file.RPT')`, or MATLAB using `readtable('file.RPT', FileType='text')`).
+
+# Describe and interpret your results.
