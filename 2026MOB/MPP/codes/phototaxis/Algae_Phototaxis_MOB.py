@@ -11,7 +11,7 @@
 
 
 # =============================================================================
-# %% 0 — Import packages
+#%% 0 — Import packages
 # =============================================================================
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -21,7 +21,7 @@ mpl.rc('image', cmap='gray')
 
 # Uncomment the lines below to install missing packages in your environment:
 # import sys
-# !{sys.executable} -m pip install numba pims trackpy opencv-python tqdm
+# !{sys.executable} -m pip install numba pims trackpy opencv-python tqdm imagecodecs
 
 import numpy as np
 import numba                  # JIT compilation to speed up the tracking loop
@@ -32,15 +32,15 @@ import trackpy as tp          # Particle tracking (based on Crocker-Grier algori
 import cv2                    # Image processing (blur, morphology, …)
 from tqdm import tqdm         # Progress bar for long loops
 import os
-
+import imagecodecs
 
 # =============================================================================
 # %% 1 — Experiment parameters  ← EDIT THIS SECTION FOR EACH RECORDING
 # =============================================================================
-frames_path        = ''      # Absolute path to the folder containing the image frames
+frames_path        = 'C:/Users/lejou/Documents/Thèse/Confs/MOB Cargese 2026/Test'      # Absolute path to the folder containing the image frames
 conversion_pix_um  = 1 / 1   # Spatial calibration: micrometres per pixel (µm/px)
 framerate          = 1       # Acquisition frame rate (frames per second)
-filename           = ''      # Common prefix shared by all frame files (e.g. "2024-01-15_10h30")
+filename           = 'Record'      # Common prefix shared by all frame files (e.g. "2024-01-15_10h30")
 ext                = ''      # File extension without the dot (e.g. 'tif', 'png')
 
 alga_diameter      = 15      # Expected apparent diameter of a single alga, in pixels.
@@ -62,6 +62,7 @@ def gray(image):
 
 # Sort filenames so that frame N always comes before frame N+1.
 # The key extracts the numeric suffix that follows `filename` in each file name.
+frames_access = os.listdir(frames_path)
 frames_access = sorted(
     frames_access,
     key=lambda x: (
