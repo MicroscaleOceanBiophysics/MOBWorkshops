@@ -1,3 +1,8 @@
+% This code plots the fluorescence data obtained by participants from the PAM workshop at MOB8.
+% These data were obtained in order to evaluate the dynamics of light adaptation of initially dark adapted Chlamydomonas cells.
+% The code plots over time the measured fv/fm and the deduced operational and the maximal photosynthetic effeciency and the increase in non-photochemical quenching (NPQ) 
+% together with the light condition (actinic light) plotted in light grey  
+
 data = readtable('test_NPQ.RPT', FileType='text')
 
 colors   = {'#1f77b4', '#2ca02c', '#ff7f0e', '#8B0000'};
@@ -163,3 +168,6 @@ for i = 1:length(keys)
 
     yyaxis left
 end
+
+%HISTORY:
+% 22 May 2026. L. Jami: created.

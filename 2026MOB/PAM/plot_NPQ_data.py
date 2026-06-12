@@ -1,3 +1,8 @@
+# This code plots the fluorescence data obtained by participants from the PAM workshop at MOB8.
+# These data were obtained in order to evaluate the dynamics of light adaptation of initially dark adapted Chlamydomonas cells.
+# The code plots over time the measured fv/fm and the deduced operational and the maximal photosynthetic effeciency and the increase in non-photochemical quenching (NPQ) 
+# together with the light condition (actinic light) plotted in light grey  
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -23,7 +28,7 @@ mpl.rcParams['axes.linewidth'] = 2.5
 mpl.rcParams['lines.linewidth'] = 3
 mpl.rcParams['lines.markersize'] = 10
 
-data = pd.read_csv('test_NPQ.RPT', sep='\s+')
+data = pd.read_csv('/groupA-1/data.txt', sep='\s+')
 
 colors = ['C0', 'C2', 'C1', 'darkred']
 markers = ['x', 'D', 'x', 'o']
@@ -70,7 +75,7 @@ for i, k in enumerate(['AllOpePSII', 'opePSII', 'maxPSII', 'NPQEstim']):
     # ax.set_ylim([0, None])
     # ax.set_xlim([-10, 130])
     ax.set_xlabel('Time  /  min')
-    if k == 'AllOpePSII': ax.set_ylabel('Yield')
+    if k == 'AllOpePSII': ax.set_ylabel('$F_v/F_m$')
     if k == 'opePSII': ax.set_ylabel('PSII operating efficiency\n'
                                      +r"$K_\mathrm{P}'[Q_A]'/(K_\mathrm{F}+K_\mathrm{NPQ}'+K_\mathrm{P}'[Q_A]')$")
     if k == 'maxPSII': ax.set_ylabel('PSII maximal efficiency\n'
@@ -89,3 +94,6 @@ for i, k in enumerate(['AllOpePSII', 'opePSII', 'maxPSII', 'NPQEstim']):
     ax_AL.yaxis.label.set_color('grey')
     ax_AL.spines["right"].set_edgecolor('grey')
     ax_AL.tick_params(axis='y', colors='grey')
+    
+#HISTORY:
+# 22 May 2026. L. Jami: created.
